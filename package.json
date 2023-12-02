@@ -6,7 +6,7 @@
   "scripts": {
     "build": "remix build",
     "dev": "remix dev --manual",
-    "start": "remix-serve ./build/index.js",
+    "start": "remix-serve ./build/index.js --omit=dev",
     "typecheck": "tsc"
   },
   "dependencies": {
