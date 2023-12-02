@@ -36,6 +36,5 @@ export default function Recent() {
 
 export const loader = async () => {
     const response = await recentBooks();
-    console.log(response);
     return (await response).data.books as bookType[];
 };
