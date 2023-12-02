@@ -1,10 +1,30 @@
-# Welcome to Remix!
+# Welcome to dBooks clone website !
 
-- [Remix Docs](https://remix.run/docs)
+- learn remix on it's amazing and so fun [Remix Docs](https://remix.run/docs) 💿
+
+## This website build using
+
+- [remix](remix.run)
+- [tailwindcss](tailwindcss.com)
+- [DaisyUi](https://daisyui.com/)
 
 ## Development
 
-From your terminal:
+Navigate to your terminal:
+
+```sh
+git clone https://github.com/onesamket/dBooks-clone.git  your folder name or default
+```
+
+```sh
+   cd dBooks-clone or your folder
+```
+
+```sh
+ npm i
+```
+
+run in development mode
 
 ```sh
 npm run dev
@@ -26,13 +46,4 @@ Then run the app in production mode:
 npm start
 ```
 
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `remix build`
-
-- `build/`
-- `public/build/`
+Now you'll need to pick a host to deploy it like vercel or render.
