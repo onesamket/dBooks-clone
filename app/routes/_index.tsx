@@ -1,5 +1,8 @@
 import type { MetaFunction } from "@remix-run/node";
-
+import { recentBooks } from "~/lib/books";
+import { useLoaderData } from '@remix-run/react';
+import { type bookType } from "~/types";
+import { AxiosError } from "axios";
 export const meta: MetaFunction = () => {
   return [
     { title: "New Remix App" },
@@ -8,34 +11,20 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
+  const books = useLoaderData<typeof loader>();
+  console.log(books);
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+    <div>
+      {JSON.stringify(books, null, 2)}
     </div>
   );
 }
+
+export const loader = async () => {
+  const response = recentBooks();
+  try {
+    return (await response).data as bookType[];
+  } catch (error) {
+    return error as AxiosError;
+  }
+};
